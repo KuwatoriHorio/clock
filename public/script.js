@@ -14,6 +14,11 @@ const messages = {
     label: "Current time",
     locale: "en-US",
   },
+  zh: {
+    documentLanguage: "zh-Hans",
+    label: "当前时间",
+    locale: "zh-CN",
+  },
 };
 
 function getInitialLanguage() {
@@ -23,7 +28,17 @@ function getInitialLanguage() {
     return savedLanguage;
   }
 
-  return navigator.language.toLowerCase().startsWith("ja") ? "ja" : "en";
+  const browserLanguage = navigator.language.toLowerCase();
+
+  if (browserLanguage.startsWith("ja")) {
+    return "ja";
+  }
+
+  if (browserLanguage.startsWith("zh")) {
+    return "zh";
+  }
+
+  return "en";
 }
 
 let currentLanguage = getInitialLanguage();
