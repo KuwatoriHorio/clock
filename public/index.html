@@ -8,7 +8,11 @@
   </head>
   <body>
     <main class="clock" aria-live="polite">
-      <p class="label">Current time</p>
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" class="language-button" data-language="ja">日本語</button>
+        <button type="button" class="language-button" data-language="en">English</button>
+      </div>
+      <p id="label" class="label">現在時刻</p>
       <time id="time" datetime="">--:--:--</time>
       <p id="date" class="date">----</p>
     </main>
